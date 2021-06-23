@@ -24,7 +24,7 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Start Bootstrap </div>
+      <div class="sidebar-heading">Sista</div>
       <div class="list-group list-group-flush">
         <a href="<?=base_url()?>index.php/dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
         <a href="<?=base_url()?>index.php/dosen" class="list-group-item list-group-item-action bg-light">Dosen</a>
