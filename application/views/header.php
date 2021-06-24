@@ -28,8 +28,8 @@
       <div class="list-group list-group-flush">
         <a href="<?=base_url()?>index.php/dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
         <a href="<?=base_url()?>index.php/dosen" class="list-group-item list-group-item-action bg-light">Dosen</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+        <a href="<?=base_url()?>index.php/seminar_ta" class="list-group-item list-group-item-action bg-light">Jadwal Seminar</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Daftar Seminar</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
       </div>
@@ -37,7 +37,7 @@
     <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
-    <div id="page-content-wrapper">
+    <div id="page-content-wrapper" >
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
