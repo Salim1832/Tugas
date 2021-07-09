@@ -27,11 +27,11 @@
       <div class="sidebar-heading">Sista</div>
       <div class="list-group list-group-flush">
         <a href="<?=base_url()?>index.php/dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="<?=base_url()?>index.php/seminar_ta" class="list-group-item list-group-item-action bg-light">Data Seminar</a>
+        <a href="<?=base_url()?>index.php/peserta" class="list-group-item list-group-item-action bg-light">Peserta</a>
         <a href="<?=base_url()?>index.php/dosen" class="list-group-item list-group-item-action bg-light">Dosen</a>
-        <a href="<?=base_url()?>index.php/seminar_ta" class="list-group-item list-group-item-action bg-light">Jadwal Seminar</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Daftar Seminar</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+        <a href="<?=base_url()?>index.php/detail_penilaian" class="list-group-item list-group-item-action bg-light">Data Detail Nilai</a>
+        <a href="<?=base_url()?>index.php/Penilaian" class="list-group-item list-group-item-action bg-light">Data Penilaian</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -40,7 +40,7 @@
     <div id="page-content-wrapper" >
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+        <button class="btn btn-primary" id="menu-toggle">Menu</button>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -51,12 +51,31 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
+            
+      <?php
+        if($this->session->has_userdata('username')){
+        
+      ?>
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
+              <a class="nav-link" href="<?=base_url()?>index.php/user/logout">Logout</a>
             </li>
+    <?php
+        }
+    ?>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
+
+    <?php
+      if($this->session->has_userdata('username')){
+        $username = $this->session->username;
+      }else{
+        $username = 'Login';
+      }
+
+
+    ?>
+              <a class="nav-link" 
+              href="<?=base_url()?>index.php/user/login">
+                <?=$username?>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Action</a>

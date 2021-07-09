@@ -10,4 +10,11 @@ class Dashboard extends CI_Controller {
         $this->load->view('footer');
 	}
 
+    public function indexlogin()
+	{
+		$this->load->model('login_m');
+        $this->login_m->keamanan();
+        $this->load->view('dashboard/index');
+	}
+
 }

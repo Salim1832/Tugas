@@ -69,4 +69,47 @@ class Dosen extends CI_Controller {
         $this->dosen->delete($data_dosen);
         redirect('dosen','refresh');
     }
+
+    public function view($id){
+        $this->load->model('dosen_model','dosen');
+        $obj_dosen = $this->dosen->findById($id);
+        $data['objdosen']=$obj_dosen;
+        $data['error']='';
+
+        $this->load->view('header');
+        $this->load->view('dosen/view',$data);
+        $this->load->view('footer');
+    }
+
+    public function upload(){
+        
+        $_iddosen=$this->input->post("iddosen");
+        $this->load->model('dosen_model','dosen');
+        $obj_dosen = $this->dosen->findById($_iddosen);
+        $data['objdosen']=$obj_dosen;
+
+        $config['upload_path']          = './uploads/photos/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        $config['max_size']             = 100;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
+        $config['file_name']            = $obj_dosen->nidn;
+
+        $this->load->library('upload', $config);
+
+            if ( ! $this->upload->do_upload('foto')){
+                $data['error'] = $this->upload->display_errors();
+                //$this->load->view('upload_form', $error);
+                }else
+                {
+                    $data['error']='sukses upload';
+                    $data['upload_data'] = $this->upload->data();
+                //$this->load->view('upload_success', $data);
+                }
+
+        $this->load->view('header');
+        $this->load->view('dosen/view',$data);
+        $this->load->view('footer');
+    }
+
 }

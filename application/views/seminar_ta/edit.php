@@ -1,22 +1,22 @@
-<h1>Daftar Seminar</h1><br>
+<h1>Edit Seminar</h1><br>
 
 <?php echo form_open('seminar_ta/save'); ?>
   <div class="form-group row">
     <label for="semester" class="col-4 col-form-label">Semester</label> 
     <div class="col-8">
-      <input id="semester" name="semester" type="text" class="form-control">
+      <input id="semester" name="semester" type="text" value="<?=$objseminar_ta->semester?>" class="form-control">
     </div>
   </div>
   <div class="form-group row">
     <label for="tanggal" class="col-4 col-form-label">Tanggal</label> 
     <div class="col-8">
-      <input id="tanggal" name="tanggal" type="text" class="form-control">
+      <input id="tanggal" name="tanggal" type="text" value="<?=$objseminar_ta->tanggal?>" class="form-control">
     </div>
   </div>
   <div class="form-group row">
     <label for="jam" class="col-4 col-form-label">Jam</label> 
     <div class="col-8">
-      <input id="jam" name="jam" type="text" class="form-control">
+      <input id="jam" name="jam" type="text" value="<?=$objseminar_ta->jam?>" class="form-control">
     </div>
   </div>
   <div class="form-group row">
@@ -39,26 +39,26 @@
   <div class="form-group row">
     <label for="nim" class="col-4 col-form-label">Nim</label> 
     <div class="col-8">
-      <input id="nim" name="nim" type="text" class="form-control">
+      <input id="nim" name="nim" type="text" value="<?=$objseminar_ta->nim?>" class="form-control">
     </div>
   </div>
   <div class="form-group row">
     <label for="nama" class="col-4 col-form-label">Nama Mahasiswa</label> 
     <div class="col-8">
-      <input id="nama" name="nama" type="text" class="form-control">
+      <input id="nama" name="nama" type="text" value="<?=$objseminar_ta->nama_mahasiswa?>" class="form-control">
     </div>
   </div>
   <div class="form-group row">
     <label for="judul" class="col-4 col-form-label">Judul</label> 
     <div class="col-8">
-      <input id="judul" name="judul" type="text" class="form-control">
+      <input id="judul" name="judul" type="text" value="<?=$objseminar_ta->judul?>" class="form-control">
     </div>
   </div>
   <div class="form-group row">
     <label for="pembimbing" class="col-4 col-form-label">Pembimbing</label> 
     <div class="col-8">
       <select id="pembimbing" name="pembimbing" class="custom-select">
-        <option value="">Pilih...</option>
+        <option value="">Pilih..</option>
         <?php
           foreach($list_dosen->result() as $dosen){
             echo '<option value="'.$dosen->id.'">'.$dosen->nama.'</option>';
@@ -93,21 +93,23 @@
       </select>
     </div>
   </div> 
+  
+  </div>
   <div class="form-group row">
     <label for="nama" class="col-4 col-form-label">Lokasi</label> 
     <div class="col-8">
-      <input id="nama" name="lokasi" type="text" class="form-control">
+      <input id="nama" name="lokasi" type="text" value="<?=$objseminar_ta->lokasi?>" class="form-control">
     </div>
   </div>
   <div class="form-group row">
     <label for="nama" class="col-4 col-form-label">Nilai Akhir</label> 
     <div class="col-8">
-      <input id="nama" name="nilai_akhir" type="text" class="form-control">
+      <input id="nama" name="nilai_akhir" type="text" value="<?=$objseminar_ta->nilai_akhir?>" class="form-control">
     </div>
   </div>
   <div class="form-group row">
     <div class="offset-4 col-8">
-      <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+      <button name="submit" type="submit" class="btn btn-warning">Update</button>
     </div>
-  </div>
+    <input type="hidden" name="idedit" value="<?=$objseminar_ta->id?>"/>
 <?php echo form_close() ?>
