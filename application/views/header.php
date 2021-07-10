@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Simple Sidebar - Start Bootstrap Template</title>
+  <title>Project Sista</title>
 
   <!-- Bootstrap core CSS -->
   <link href="<?php echo base_url()?>public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Sista</div>
+      <div class="sidebar-heading"><img src="<?php echo base_url()?>public/low size.png" width="100pt" height="100pt" class="rounded mx-auto d-block" alt=""></div>
       <div class="list-group list-group-flush">
         <a href="<?=base_url()?>index.php/dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
         <a href="<?=base_url()?>index.php/seminar_ta" class="list-group-item list-group-item-action bg-light">Data Seminar</a>
@@ -51,38 +51,11 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-            
-      <?php
-        if($this->session->has_userdata('username')){
-        
-      ?>
             <li class="nav-item">
-              <a class="nav-link" href="<?=base_url()?>index.php/user/logout">Logout</a>
+              <a class="nav-link" href="<?php echo site_url('login/ceklogin')?>">Login</a>
             </li>
-    <?php
-        }
-    ?>
-            <li class="nav-item dropdown">
-
-    <?php
-      if($this->session->has_userdata('username')){
-        $username = $this->session->username;
-      }else{
-        $username = 'Login';
-      }
-
-
-    ?>
-              <a class="nav-link" 
-              href="<?=base_url()?>index.php/user/login">
-                <?=$username?>
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
+            <li class="nav-item">
+              <a class="nav-link" href="<?php echo site_url('login/logout')?>">Logout</a>
             </li>
           </ul>
         </div>
